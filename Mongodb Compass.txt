@@ -1,0 +1,154 @@
+Mongodb Compass
+
+Insertion:
+
+[
+{"_id":1,"Fname":"Abhishek","Lname":"Kumar","Age":22,"Email":"abhishek.kumar@gmail.com","Phone":7324046924,"Experience":3}
+{"_id":2,"Fname":"Amith","Lname":"Kumar","Age":23,"Email":"amith.kumar@gmail.com","Phone":9924046924,"Experience":4}
+{"_id":3,"Fname":"Nikhil","Lname":"Raj","Age":21,"Email":"nikhil.raj@gmail.com","Phone":8764046924,"Experience":2}
+{"_id":4,"Fname":"Aftab","Lname":"Ahmad","Age":22,"Email":"aftab.ahmad@gmail.com","Phone":9124046924,"Experience":5}
+{"_id":5,"Fname":"Bharat","Lname":"Kumar","Age":24,"Email":"bharat.kumar@gmail.com","Phone":8344046924,"Experience":3}
+{"_id":6,"Fname":"Rishabh","Lname":"Pandey","Age":21,"Email":"rishabh.pandey@gmail.com","Phone":7244046924,"Experience":4}
+{"_id":7,"Fname":"Santosh","Lname":"Kumar","Age":21,"Email":"santosh.kumar@gmail.com","Phone":6344046924,"Experience":3}
+]
+
+Output:
+
+db.employee.find().pretty()
+{ _id: 1,
+  Fname: 'Abhishek',
+  Lname: 'Kumar',
+  Age: 22,
+  Email: 'abhishek.kumar@gmail.com',
+  Phone: 7324046924,
+  Experience: 3 }
+{ _id: 2,
+  Fname: 'Amith',
+  Lname: 'Kumar',
+  Age: 23,
+  Email: 'amith.kumar@gmail.com',
+  Phone: 9924046924,
+  Experience: 4 }
+{ _id: 3,
+  Fname: 'Nikhil',
+  Lname: 'Raj',
+  Age: 21,
+  Email: 'nikhil.raj@gmail.com',
+  Phone: 8764046924,
+  Experience: 2 }
+{ _id: 4,
+  Fname: 'Aftab',
+  Lname: 'Ahmad',
+  Age: 22,
+  Email: 'aftab.ahmad@gmail.com',
+  Phone: 9124046924,
+  Experience: 5 }
+{ _id: 5,
+  Fname: 'Bharat',
+  Lname: 'Kumar',
+  Age: 24,
+  Email: 'bharat.kumar@gmail.com',
+  Phone: 8344046924,
+  Experience: 3 }
+{ _id: 6,
+  Fname: 'Rishabh',
+  Lname: 'Pandey',
+  Age: 21,
+  Email: 'rishabh.pandey@gmail.com',
+  Phone: 7244046924,
+  Experience: 4 }
+{ _id: 7,
+  Fname: 'Santosh',
+  Lname: 'Kumar',
+  Age: 21,
+  Email: 'santosh.kumar@gmail.com',
+  Phone: 6344046924,
+  Experience: 3 }
+{ _id: 8,
+  Fname: 'Rachel',
+  Lname: 'Green',
+  Age: 26,
+  Email: 'rachel.green@gmail.com',
+  Phone: 8756046924,
+  Experience: 4 }
+{ _id: 9,
+  Fname: 'John',
+  Lname: 'Smith',
+  Age: 27,
+  Email: 'john.smith@gmail.com',
+  Phone: 8564046924,
+  Experience: 4 }
+  
+
+Query:
+
+{"Fname":"Rachel"}
+{"_id":8,"Fname":"Rachel","Lname":"Green","Age":26,"Email":"rachel.green@gmail.com","Phone":8756046924,"Experience":4}
+
+{$or:[{"Fname":"John"},{"Age":22}]}
+{"_id":4,"Fname":"Aftab","Lname":"Ahmad","Age":22,"Email":"aftab.ahmad@gmail.com","Phone":9124046924,"Experience":5}
+{"_id":1,"Fname":"Abhishek","Lname":"Kumar","Age":22,"Email":"abhishek.kumar@gmail.com","Phone":7324046924,"Experience":3}
+{"_id":9,"Fname":"John","Lname":"Smith","Age":27,"Email":"john.smith@gmail.com","Phone":8564046924,"Experience":4}      
+
+
+{$or:[{"Lname":"Smith"},{"Experience":5}]}
+{"_id":4,"Fname":"Aftab","Lname":"Ahmad","Age":22,"Email":"aftab.ahmad@gmail.com","Phone":9124046924,"Experience":5}
+{"_id":9,"Fname":"John","Lname":"Smith","Age":27,"Email":"john.smith@gmail.com","Phone":8564046924,"Experience":4}
+
+Update:
+
+db.employee.updateMany({ Age:22 }, {$set:{Age : 21}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0 }
+
+
+Remove:
+
+db.employee.remove({Fname : "John"})
+'DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany or bulkWrite.'
+{ result: { n: 1, ok: 1 },
+  connection: 
+   { _events: 
+      { commandStarted: [Function],
+        commandFailed: [Function],
+        commandSucceeded: [Function],
+        clusterTimeReceived: [Function] },
+     _eventsCount: 4,
+     _maxListeners: undefined,
+     id: 9,
+     address: '127.0.0.1:27017',
+     bson: {},
+     socketTimeout: 0,
+     host: 'localhost',
+     port: 27017,
+     monitorCommands: false,
+     closed: false,
+     destroyed: false,
+     lastIsMasterMS: 7 },
+  message: 
+   { parsed: true,
+     raw: <Buffer 2d 00 00 00 2e 05 00 00 05 03 00 00 dd 07 00 00 00 00 00 00 00 18 00 00 00 10 6e 00 01 00 00 00 01 6f 6b 00 00 00 00 00 00 00 f0 3f 00>,
+     data: <Buffer 00 00 00 00 00 18 00 00 00 10 6e 00 01 00 00 00 01 6f 6b 00 00 00 00 00 00 00 f0 3f 00>,
+     bson: {},
+     opts: 
+      { promoteLongs: true,
+        promoteValues: true,
+        promoteBuffers: false },
+     length: 45,
+     requestId: 1326,
+     responseTo: 773,
+     opCode: 2013,
+     fromCompressed: undefined,
+     responseFlags: 0,
+     checksumPresent: false,
+     moreToCome: false,
+     exhaustAllowed: false,
+     promoteLongs: true,
+     promoteValues: true,
+     promoteBuffers: false,
+     documents: [ { n: 1, ok: 1 } ],
+     index: 29 } }
+     
