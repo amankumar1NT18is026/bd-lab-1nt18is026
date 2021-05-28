@@ -1,0 +1,34 @@
+>use customer
+>db.createCollection("items")
+> db.items.find().pretty()
+{ "_id" : 1, "cu_id" : "a123", "amt" : 500, "status" : "a" }
+{ "_id" : 2, "cu_id" : "a123", "amt" : 250, "status" : "a" }
+{ "_id" : 3, "cu_id" : "a213", "amt" : 500, "status" : "a" }
+{ "_id" : 4, "cu_id" : "a123", "amt" : 300, "status" : "u" }
+{ "_id" : 5, "cu_id" : "a023", "amt" : 500, "status" : "u" }
+
+Q1)RETRIEVE ALL CUSTOMERS WHOSE ACCOUNT IS ACTIVE(A)
+->QUERY:
+ db.items.find({status:'a'}).pretty()
+->Answer:
+{ "_id" : 1, "cu_id" : "a123", "amt" : 500, "status" : "a" }
+{ "_id" : 2, "cu_id" : "a123", "amt" : 250, "status" : "a" }
+{ "_id" : 3, "cu_id" : "a213", "amt" : 500, "status" : "a" }
+
+Q2)RETRIEVE THE CUSTOMERS WHO HAS MAXIMUM AMOUNT IN ACCOUNT.
+->QUERY:
+> db.items.aggregate([{$group:{_id:"$cu_id",value:{$sum:"$amt"}}},{$out:"show"}])
+> db.show.find()
+{ "_id" : "a123", "value" : 1050 }
+{ "_id" : "a023", "value" : 500 }
+{ "_id" : "a213", "value" : 500 }
+> db.show.aggregate([{$group:{_id:null,val:{$max:"$value"}}}])
+{ "_id" : null, "val" : 1050 }
+
+Q3)FOR EACH CUSTOMER COUNT THE NO OF ACCOUNT STATUS.
+->QUERY:db.items.aggregate([{$match:{status:"a"}},{$group:{_id:"$cu_id",value:{$sum:1}}}])
+->Answer
+
+{ "_id" : "a123", "value" : 2}
+{ "_id" : "a023", "value" : 0}
+{ "_id" : "a213", "value" : 1}
