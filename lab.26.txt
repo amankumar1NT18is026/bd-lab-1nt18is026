@@ -1,0 +1,638 @@
+>use company1
+>db.createCollection("empdeatils")
+>db.empdetails.insertMany([{_id:1,fname:"aman",lname:"sai",age:20,email:"aman@gmail.com",phno:9610355408,experience:4},{_id:2,fname:"deepti",lname:"keshav",age:21,email:"deepti@gmail.com",phno:9303695536,experience:5},{_id:3,fname:"aish",lname:"nadiger",age:22,email:"aish@gmail.com",phno:9103695535,experience:6},{_id:4,fname:"john",lname:"smith",age:25,email:"john@gmail.com",phno:6303695767,experience:3},{_id:5,fname:"omar",lname:"gosh",age:23,email:"omar@gmail.com",phno:6303698535,experience:2},{_id:6,fname:"ranz",lname:"kyle",age:19,email:"ranz@gmail.com",phno:9313695535,experience:7},{_id:7,fname:"insha",lname:"nadaf",age:18,email:"insha@gmail.com",phno:9123495535,experience:1},{_id:8,fname:"apporva",lname:"vinod",age:20,email:"apoorva@gmail.com",phno:9003695535,experience:7},{_id:9,fname:"abraham",lname:"Lincon",age:22,email:"abraham@gmail.com",phno:9876695535,experience:4},{_id:10,fname:"ben",lname:"george",age:21,email:"ben@gmail.com",phno:6303234535,experience:6}
+> db.createCollection("Test")
+{ "ok" : 1 }
+>db.Test.insertMany([{_id:1,animal_name:"dog"},{_id:2,animal_name:"cat"},{
+_id:3,animal_name:"tiger"}])
+> db.Test.find().pretty()
+{ "_id" : 1, "animal_name" : "dog" }
+{ "_id" : 2, "animal_name" : "cat" }
+{ "_id" : 3, "animal_name" : "tiger" }
+>db.Test.drop()
+true
+> db.empdetails.find().pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "aman@gmail.com",
+	"phno" : 9610355408,
+	"experience" : 4
+}
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 4,
+	"fname" : "john",
+	"lname" : "smith",
+	"age" : 25,
+	"email" : "john@gmail.com",
+	"phno" : 6303695767,
+	"experience" : 3
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+{
+	"_id" : 9,
+	"fname" : "abraham",
+	"lname" : "Lincon",
+	"age" : 22,
+	"email" : "abraham@gmail.com",
+	"phno" : 9876695535,
+	"experience" : 4
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
+> db.empdetails.save({_id:9,fname:"chavi",lname:"singh",age:22,email:"chavi@gmail.com",phno:9123456701,experience:6})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.empdetails.find().pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 4,
+	"fname" : "john",
+	"lname" : "smith",
+	"age" : 25,
+	"email" : "john@gmail.com",
+	"phno" : 6303695767,
+	"experience" : 3
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+{
+	"_id" : 9,
+	"fname" : "chavi",
+	"lname" : "singh",
+	"age" : 22,
+	"email" : "chavi@gmail.com",
+	"phno" : 9123456701,
+	"experience" : 6
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
+> db.empdetails.find({fname:"josh"}).pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+> db.empdetails.find({$and:[{experience:2},{lname:"gosh"}]}).pretty()
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+> db.empdetails.find({$or:[{experience:2},{experience:5}]}).pretty()
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+> db.empdetails.find({age:{$not:{$gt:25}}}).pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 4,
+	"fname" : "john",
+	"lname" : "smith",
+	"age" : 25,
+	"email" : "john@gmail.com",
+	"phno" : 6303695767,
+	"experience" : 3
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+{
+	"_id" : 9,
+	"fname" : "chavi",
+	"lname" : "singh",
+	"age" : 22,
+	"email" : "chavi@gmail.com",
+	"phno" : 9123456701,
+	"experience" : 6
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
+> db.empdetails.find({age:{$not:{$gt:23}}}).pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+{
+	"_id" : 9,
+	"fname" : "chavi",
+	"lname" : "singh",
+	"age" : 22,
+	"email" : "chavi@gmail.com",
+	"phno" : 9123456701,
+	"experience" : 6
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
+> db.empdetails.find({age:{$not:{$gt:20}}}).pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+ db.empdetails.find({age:{$ne:20}}).pretty()
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 4,
+	"fname" : "john",
+	"lname" : "smith",
+	"age" : 25,
+	"email" : "john@gmail.com",
+	"phno" : 6303695767,
+	"experience" : 3
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 9,
+	"fname" : "chavi",
+	"lname" : "singh",
+	"age" : 22,
+	"email" : "chavi@gmail.com",
+	"phno" : 9123456701,
+	"experience" : 6
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
+> db.empdetails.find({age:{$lte:20}}).pretty()
+{
+	"_id" : 1,
+	"fname" : "josh",
+	"lname" : "sai",
+	"age" : 20,
+	"email" : "josh@gmail.com",
+	"phno" : 6303695535,
+	"experience" : 4
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+> db.empdetails.find({_id:{$ne:1}}).pretty()
+{
+	"_id" : 2,
+	"fname" : "deepti",
+	"lname" : "keshav",
+	"age" : 21,
+	"email" : "deepti@gmail.com",
+	"phno" : 9303695536,
+	"experience" : 5
+}
+{
+	"_id" : 3,
+	"fname" : "aish",
+	"lname" : "nadiger",
+	"age" : 22,
+	"email" : "aish@gmail.com",
+	"phno" : 9103695535,
+	"experience" : 6
+}
+{
+	"_id" : 4,
+	"fname" : "john",
+	"lname" : "smith",
+	"age" : 25,
+	"email" : "john@gmail.com",
+	"phno" : 6303695767,
+	"experience" : 3
+}
+{
+	"_id" : 5,
+	"fname" : "omar",
+	"lname" : "gosh",
+	"age" : 23,
+	"email" : "omar@gmail.com",
+	"phno" : 6303698535,
+	"experience" : 2
+}
+{
+	"_id" : 6,
+	"fname" : "ranz",
+	"lname" : "kyle",
+	"age" : 19,
+	"email" : "ranz@gmail.com",
+	"phno" : 9313695535,
+	"experience" : 7
+}
+{
+	"_id" : 7,
+	"fname" : "insha",
+	"lname" : "nadaf",
+	"age" : 18,
+	"email" : "insha@gmail.com",
+	"phno" : 9123495535,
+	"experience" : 1
+}
+{
+	"_id" : 8,
+	"fname" : "apporva",
+	"lname" : "vinod",
+	"age" : 20,
+	"email" : "apoorva@gmail.com",
+	"phno" : 9003695535,
+	"experience" : 7
+}
+{
+	"_id" : 9,
+	"fname" : "chavi",
+	"lname" : "singh",
+	"age" : 22,
+	"email" : "chavi@gmail.com",
+	"phno" : 9123456701,
+	"experience" : 6
+}
+{
+	"_id" : 10,
+	"fname" : "ben",
+	"lname" : "george",
+	"age" : 21,
+	"email" : "ben@gmail.com",
+	"phno" : 6303234535,
+	"experience" : 6
+}
